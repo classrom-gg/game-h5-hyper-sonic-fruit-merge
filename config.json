@@ -1,0 +1,66 @@
+{
+  "name": "hyper-sonic-fruit-merge",
+  "app_id": "hyper-sonic-fruit-merge",
+  "cdn_base": "https://cdn.jsdelivr.net/gh/classrom-gg/game-repo-hyper-sonic-fruit-me@main/hyper-sonic-fruit-merge/",
+  "urls": {},
+  "files": {
+    "2835fbeece88ca40616802a4c8e236c4.framework.js.unityweb": {
+      "cdn_path": "https://cdn.jsdelivr.net/gh/classrom-gg/game-repo-hyper-sonic-fruit-me@main/hyper-sonic-fruit-merge/Build\\2835fbeece88ca40616802a4c8e236c4.framework.js.unityweb",
+      "local_path": "Build\\2835fbeece88ca40616802a4c8e236c4.framework.js.unityweb",
+      "size": 467121,
+      "size_mb": 0.45,
+      "needs_chunk": false
+    },
+    "4062a498e934d4f2987e50d04392b826.wasm.unityweb": {
+      "cdn_path": "https://cdn.jsdelivr.net/gh/classrom-gg/game-repo-hyper-sonic-fruit-me@main/hyper-sonic-fruit-merge/Build\\4062a498e934d4f2987e50d04392b826.wasm.unityweb",
+      "local_path": "Build\\4062a498e934d4f2987e50d04392b826.wasm.unityweb",
+      "size": 36432996,
+      "size_mb": 34.75,
+      "needs_chunk": true
+    },
+    "8f44262c681656821a24f2769488ea66.data.unityweb": {
+      "cdn_path": "https://cdn.jsdelivr.net/gh/classrom-gg/game-repo-hyper-sonic-fruit-me@main/hyper-sonic-fruit-merge/Build\\8f44262c681656821a24f2769488ea66.data.unityweb",
+      "local_path": "Build\\8f44262c681656821a24f2769488ea66.data.unityweb",
+      "size": 20310353,
+      "size_mb": 19.37,
+      "needs_chunk": true
+    },
+    "cee3bfd5589651a8b16e2a12b8abe5b3.loader.js": {
+      "cdn_path": "https://cdn.jsdelivr.net/gh/classrom-gg/game-repo-hyper-sonic-fruit-me@main/hyper-sonic-fruit-merge/Build\\cee3bfd5589651a8b16e2a12b8abe5b3.loader.js",
+      "local_path": "Build\\cee3bfd5589651a8b16e2a12b8abe5b3.loader.js",
+      "size": 114412,
+      "size_mb": 0.11,
+      "needs_chunk": false
+    }
+  },
+  "chunks_needed": [
+    {
+      "filename": "4062a498e934d4f2987e50d04392b826.wasm.unityweb",
+      "path": "Build\\4062a498e934d4f2987e50d04392b826.wasm.unityweb",
+      "size_mb": 34.75,
+      "chunks": 2
+    },
+    {
+      "filename": "8f44262c681656821a24f2769488ea66.data.unityweb",
+      "path": "Build\\8f44262c681656821a24f2769488ea66.data.unityweb",
+      "size_mb": 19.37,
+      "chunks": 2
+    }
+  ],
+  "large_files": [
+    {
+      "path": "c:\\Users\\ngocl\\Desktop\\game h5 github\\games\\hyper-sonic-fruit-merge\\Build\\4062a498e934d4f2987e50d04392b826.wasm.unityweb",
+      "relative_path": "Build\\4062a498e934d4f2987e50d04392b826.wasm.unityweb",
+      "size": 36432996,
+      "size_mb": 34.75,
+      "needs_chunk": true
+    },
+    {
+      "path": "c:\\Users\\ngocl\\Desktop\\game h5 github\\games\\hyper-sonic-fruit-merge\\Build\\8f44262c681656821a24f2769488ea66.data.unityweb",
+      "relative_path": "Build\\8f44262c681656821a24f2769488ea66.data.unityweb",
+      "size": 20310353,
+      "size_mb": 19.37,
+      "needs_chunk": true
+    }
+  ]
+}

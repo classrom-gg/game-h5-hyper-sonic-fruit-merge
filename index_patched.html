@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+    <head><script src="https://games.playgama.net/assets/bootstrap.js"></script>
+
+        <meta charset="utf-8">
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <title>hyper-sonic-fruit-merge</title>
+
+        <link rel="preconnect" href="https://bridge.playgama.com">
+
+        <link rel="preload" href="Build/4062a498e934d4f2987e50d04392b826.wasm.unityweb" as="fetch" type="application/wasm" crossorigin>
+
+        <link rel="preload" href="Build/8f44262c681656821a24f2769488ea66.data.unityweb" as="fetch" crossorigin>
+
+        <link rel="preload" href="Build/2835fbeece88ca40616802a4c8e236c4.framework.js.unityweb" as="script">
+
+        <style>
+
+            html, body {
+
+                width: 100%;
+
+                height: 100%;
+
+                padding: 0px;
+
+                margin: 0px;
+
+            }
+
+            .fullscreen-canvas {
+
+                background: #242424;
+
+                width: 100%;
+
+                height: 100%;
+
+                position: absolute;
+
+                top: 0px;
+
+                left: 0px;
+
+            }
+
+        </style>
+
+    
+<script>
+// Chunk loader for large files
+async function loadChunks(cdnBase, filename, totalChunks) {
+  const chunks = [];
+  for (let i = 0; i < totalChunks; i++) {
+    const chunkUrl = cdnBase + filename.replace('.data', '.part' + i.toString().padStart(2, '0') + '.bin')
+                            .replace('.wasm', '.part' + i.toString().padStart(2, '0') + '.bin');
+    const response = await fetch(chunkUrl);
+    if (!response.ok) throw new Error('Failed to load chunk ' + i);
+    chunks.push(await response.arrayBuffer());
+  }
+  // Concatenate all chunks
+  const totalLength = chunks.reduce((acc, buf) => acc + buf.byteLength, 0);
+  const result = new Uint8Array(totalLength);
+  let offset = 0;
+  for (const buf of chunks) {
+    result.set(new Uint8Array(buf), offset);
+    offset += buf.byteLength;
+  }
+  return result.buffer;
+}
+
+// Override createUnityInstance to handle chunked data
+const originalCreateUnityInstance = window.createUnityInstance;
+window.createUnityInstance = async function(canvas, config, progressCallback) {
+  // Load chunks if needed
+  if (config.dataUrl && config.dataUrl.includes('.part')) {
+    const match = config.dataUrl.match(/(.+)\.part(\d+)\.bin/);
+    if (match) {
+      const baseUrl = match[1];
+      const totalChunks = parseInt(match[2]) + 1;
+      console.log('Loading data chunks: ' + totalChunks);
+      const dataBuffer = await loadChunks(baseUrl + '.', '', totalChunks);
+      config.dataUrl = dataBuffer;
+    }
+  }
+  return originalCreateUnityInstance(canvas, config, progressCallback);
+};
+</script>
+
+</head>
+
+    <body>
+
+        <canvas id="canvas" class="fullscreen-canvas"></canvas>
+
+        <script src="./playgama-bridge-unity.js"></script>
+
+    </body>
+
+</html>
